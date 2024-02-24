@@ -1,4 +1,5 @@
 import data from "../data.json";
+import "../styles/Roadmap.css";
 
 export default function Roadmap() {
   const roadmapNow = data?.boards[2].columns[0];
@@ -6,7 +7,7 @@ export default function Roadmap() {
   const roadmapLater = data?.boards[2].columns[2];
   return (
     <section>
-      <div>
+      <div className="now_container_roadmap">
         <h1>{roadmapNow.name}</h1>
         <ul>
           {roadmapNow?.tasks?.map((task, index) => (
@@ -15,10 +16,10 @@ export default function Roadmap() {
         </ul>
       </div>
 
-      <div>
+      <div className="next_container_roadmap">
         <h1>{roadmapNext.name}</h1>
       </div>
-      <div>
+      <div className="later_container_roadmap">
         <h1>{roadmapLater.name}</h1>
       </div>
     </section>

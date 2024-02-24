@@ -1,4 +1,5 @@
 import data from "../data.json";
+import "../styles/MarketingPlan.css";
 
 export default function MarketingPlan() {
   const marketingPlanTodo = data?.boards[1].columns[0];
@@ -7,7 +8,7 @@ export default function MarketingPlan() {
 
   return (
     <section>
-      <div>
+      <div className="todo_container_marketing">
         <h1>{marketingPlanTodo.name}</h1>
         <ul>
           {marketingPlanTodo?.tasks?.map((task, index) => (
@@ -16,7 +17,7 @@ export default function MarketingPlan() {
         </ul>
       </div>
 
-      <div>
+      <div className="doing_container_marketing">
         <h1>{marketingPlanDoing.name}</h1>
         {/* <ul>
           {marketingPlanDoing?.tasks.map((task, index) => (
@@ -25,7 +26,7 @@ export default function MarketingPlan() {
         </ul> */}
       </div>
 
-      <div>
+      <div className="done_container_marketing">
         <h1>{marketingPlanDone.name}</h1>
         {/* <ul>
           {marketingPlanDone?.tasks.map((task, index) => (

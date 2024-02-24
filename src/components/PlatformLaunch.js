@@ -1,4 +1,5 @@
 import data from "../data.json";
+import "../styles/PlatfromLaunch.css";
 
 export default function PlatfromLaunch() {
   const platformLaunchTodo = data.boards[0].columns[0];
@@ -7,7 +8,7 @@ export default function PlatfromLaunch() {
 
   return (
     <section>
-      <div>
+      <div className="todo_container_platformLaunch">
         <h1>{platformLaunchTodo.name}</h1>
         <ul>
           {platformLaunchTodo?.tasks?.map((task, index) => (
@@ -16,7 +17,7 @@ export default function PlatfromLaunch() {
         </ul>
       </div>
 
-      <div>
+      <div className="doing_container_platformLaunch">
         <h1>{platformLaunchDoing.name}</h1>
         <ul>
           {platformLaunchDoing?.tasks?.map((task, index) => (
@@ -25,7 +26,7 @@ export default function PlatfromLaunch() {
         </ul>
       </div>
 
-      <div>
+      <div className="done_container_platformLaunch">
         <h1>{platformLaunchDone.name}</h1>
         <ul>
           {platformLaunchDone?.tasks.map((task, index) => (
