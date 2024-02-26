@@ -1,26 +1,22 @@
 .backgroundModal {
-  position: fixed; /* Occupy the whole screen */
-  top: 0;
-  left: 0;
+  position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 1000; /* Ensure it's on top of all content */
-  display: flex; /* Center the form */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Style for the form itself */
 .new_board_modal_form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  position: relative; /* Allows it to be above the overlay */
-  z-index: 1001; /* Keep it on top of the overlay   */
+  z-index: 1001;
   background-color: white;
   width: 400px;
   height: 450px;
   padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
