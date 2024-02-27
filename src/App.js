@@ -11,7 +11,11 @@ function App() {
   const [show, setShow] = useState(false);
 
   function handleShowFormClick() {
-    setShow((prev) => !prev);
+    setShow(true);
+  }
+
+  function handleHideFormClick() {
+    setShow(false);
   }
 
   return (
@@ -23,7 +27,10 @@ function App() {
           <Route path="/marketing-plan" element={<MarketingPlan />} />
           <Route path="/roadmap" element={<Roadmap />} />
         </Routes>
-        <AddNewBoardModal show={show} />
+        <AddNewBoardModal
+          show={show}
+          handleHideFormClick={handleHideFormClick}
+        />
       </Router>
     </div>
   );
