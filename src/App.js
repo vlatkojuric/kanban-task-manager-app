@@ -9,6 +9,7 @@ import { useState } from "react";
 
 function App() {
   const [show, setShow] = useState(false);
+  const [boardCount, setBoardCount] = useState(3);
 
   function handleShowFormClick() {
     setShow(true);
@@ -18,10 +19,17 @@ function App() {
     setShow(false);
   }
 
+  function handleBoardCount() {
+    setBoardCount((prevCount) => prevCount + 1);
+  }
+
   return (
     <div className="App">
       <Router>
-        <Navbar handleShowFormClick={handleShowFormClick} />
+        <Navbar
+          handleShowFormClick={handleShowFormClick}
+          boardCount={boardCount}
+        />
         <Routes>
           <Route path="/" element={<PlatfromLaunch />} />
           <Route path="/marketing-plan" element={<MarketingPlan />} />
@@ -30,6 +38,7 @@ function App() {
         <AddNewBoardModal
           show={show}
           handleHideFormClick={handleHideFormClick}
+          handleBoardCount={handleBoardCount}
         />
       </Router>
     </div>
