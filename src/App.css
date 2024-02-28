@@ -3,6 +3,14 @@
 .App {
   display: flex;
   justify-content: flex-start;
+  position: relative;
+}
+
+header {
+  position: absolute;
+  border: 1px solid black;
+  width: fit-content;
+  left: 20%;
 }
 
 body {
@@ -16,8 +24,11 @@ body {
 }
 
 section {
+  margin-top: 100px;
   display: flex;
+  justify-content: flex-start;
   border: 1px solid black;
+  flex: 1;
 }
 
 ul {

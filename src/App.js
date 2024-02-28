@@ -26,14 +26,14 @@ function App() {
   }
 
   return (
-    <div>
-      <Header />
+    <div className="container">
       <div className="App">
         <Router>
           <Navbar
             handleShowFormClick={handleShowFormClick}
             boardCount={boardCount}
           />
+          <Header />
 
           <Routes>
             <Route path="/" element={<PlatfromLaunch />} />
