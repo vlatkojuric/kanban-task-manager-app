@@ -4,6 +4,8 @@ import MarketingPlan from "./pages/MarketingPlan";
 import Roadmap from "./pages/Roadmap";
 import Navbar from "./components/Navbar";
 import AddNewBoardModal from "./components/AddNewBoardModal";
+import Header from "./components/Header";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
@@ -24,23 +26,27 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Router>
-        <Navbar
-          handleShowFormClick={handleShowFormClick}
-          boardCount={boardCount}
-        />
-        <Routes>
-          <Route path="/" element={<PlatfromLaunch />} />
-          <Route path="/marketing-plan" element={<MarketingPlan />} />
-          <Route path="/roadmap" element={<Roadmap />} />
-        </Routes>
-        <AddNewBoardModal
-          show={show}
-          handleHideFormClick={handleHideFormClick}
-          handleBoardCount={handleBoardCount}
-        />
-      </Router>
+    <div>
+      <Header />
+      <div className="App">
+        <Router>
+          <Navbar
+            handleShowFormClick={handleShowFormClick}
+            boardCount={boardCount}
+          />
+
+          <Routes>
+            <Route path="/" element={<PlatfromLaunch />} />
+            <Route path="/marketing-plan" element={<MarketingPlan />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+          </Routes>
+          <AddNewBoardModal
+            show={show}
+            handleHideFormClick={handleHideFormClick}
+            handleBoardCount={handleBoardCount}
+          />
+        </Router>
+      </div>
     </div>
   );
 }
