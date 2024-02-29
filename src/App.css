@@ -21,6 +21,7 @@ section {
   display: flex;
   justify-content: flex-start;
   height: inherit;
+  padding-left: 15px;
 }
 
 div .columns_container {
