@@ -1,5 +1,8 @@
-/* .header {
+header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
-  justify-content: left;
-} */
+  padding: 15px 15px 15px 15px;
+}

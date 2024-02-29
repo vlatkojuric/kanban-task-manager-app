@@ -3,14 +3,8 @@
 .App {
   display: flex;
   justify-content: flex-start;
-  position: relative;
-}
 
-header {
-  position: absolute;
-  border: 1px solid black;
-  width: fit-content;
-  left: 20%;
+  position: relative;
 }
 
 body {
@@ -24,11 +18,15 @@ body {
 }
 
 section {
-  margin-top: 100px;
   display: flex;
   justify-content: flex-start;
+  height: inherit;
+}
+
+div .columns_container {
+  width: 100%;
   border: 1px solid black;
-  flex: 1;
+  background-color: rgba(22, 22, 22, 0.151);
 }
 
 ul {
@@ -47,4 +45,5 @@ li {
   height: 80px;
   text-align: center;
   padding: 0 7px 0 7px;
+  background-color: white;
 }
