@@ -31,9 +31,10 @@ function App() {
   }
 
   function handleAddLink() {
+    const linkName = newLink.replace(/\s+/g, "-");
     const link = {
       name: newLink,
-      to: `/${newLink}`,
+      to: `/${linkName}`,
     };
     setNavLink([...navLink, link]);
   }
