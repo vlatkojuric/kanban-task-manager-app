@@ -30,6 +30,10 @@ div .columns_container {
   background-color: rgba(22, 22, 22, 0.151);
 }
 
+.columns_container_tasks {
+  width: 400px;
+}
+
 ul {
   list-style-type: none;
 }

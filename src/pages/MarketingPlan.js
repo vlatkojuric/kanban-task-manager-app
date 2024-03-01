@@ -11,7 +11,7 @@ export default function MarketingPlan() {
     <div className="columns_container">
       <Header />
       <section>
-        <div className="todo_container_marketing">
+        <div className="columns_container_tasks">
           <h1>{marketingPlanTodo.name}</h1>
           <ul>
             {marketingPlanTodo?.tasks?.map((task, index) => (
@@ -20,7 +20,7 @@ export default function MarketingPlan() {
           </ul>
         </div>
 
-        <div className="doing_container_marketing">
+        <div className="columns_container_tasks">
           <h1>{marketingPlanDoing.name}</h1>
           {/* <ul>
           {marketingPlanDoing?.tasks.map((task, index) => (
@@ -29,7 +29,7 @@ export default function MarketingPlan() {
         </ul> */}
         </div>
 
-        <div className="done_container_marketing">
+        <div className="columns_container_tasks">
           <h1>{marketingPlanDone.name}</h1>
           {/* <ul>
           {marketingPlanDone?.tasks.map((task, index) => (
