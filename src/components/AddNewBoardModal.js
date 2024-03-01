@@ -20,15 +20,10 @@ export default function AddNewBoardModal({
           <CloseIcon onClick={handleHideFormClick} className="close_form" />
 
           <label for="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            onChange={handleLinkName}
-          ></input>
+          <input type="text" id="name" name="name" onChange={handleLinkName} />
           <label for="columns">Columns</label>
-          <input type="text" id="columns" name="column1"></input>
-          <input type="text" id="columns" name="column2"></input>
+          <input type="text" id="columns" name="column1" />
+          <input type="text" id="columns" name="column2" />
           <button>
             <AddIcon />
             Add New Column
