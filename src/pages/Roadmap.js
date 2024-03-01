@@ -11,7 +11,7 @@ export default function Roadmap() {
     <div className="columns_container">
       <Header />
       <section>
-        <div className="now_container_roadmap">
+        <div className="columns_container_tasks">
           <h1>{roadmapNow.name}</h1>
           <ul>
             {roadmapNow?.tasks?.map((task, index) => (
@@ -20,10 +20,10 @@ export default function Roadmap() {
           </ul>
         </div>
 
-        <div className="next_container_roadmap">
+        <div className="columns_container_tasks">
           <h1>{roadmapNext.name}</h1>
         </div>
-        <div className="later_container_roadmap">
+        <div className="columns_container_tasks">
           <h1>{roadmapLater.name}</h1>
         </div>
       </section>
