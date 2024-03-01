@@ -12,7 +12,7 @@ export default function PlatfromLaunch() {
       <Header />
 
       <section>
-        <div className="todo_container_platformLaunch">
+        <div className="columns_container_tasks">
           <h1>{platformLaunchTodo.name}</h1>
           <ul>
             {platformLaunchTodo?.tasks?.map((task, index) => (
@@ -21,7 +21,7 @@ export default function PlatfromLaunch() {
           </ul>
         </div>
 
-        <div className="doing_container_platformLaunch">
+        <div className="columns_container_tasks">
           <h1>{platformLaunchDoing.name}</h1>
           <ul>
             {platformLaunchDoing?.tasks?.map((task, index) => (
@@ -30,7 +30,7 @@ export default function PlatfromLaunch() {
           </ul>
         </div>
 
-        <div className="done_container_platformLaunch">
+        <div className="columns_container_tasks">
           <h1>{platformLaunchDone.name}</h1>
           <ul>
             {platformLaunchDone?.tasks.map((task, index) => (
