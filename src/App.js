@@ -11,6 +11,12 @@ import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false);
   const [boardCount, setBoardCount] = useState(3);
+  const [navLink, setNavLink] = useState([
+    { name: "Platform Launch", to: "/" },
+    { name: "Marketing Plan", to: "/marketing-plan" },
+    { name: "Roadmap", to: "/roadmap" },
+  ]);
+  const [newLink, setNewLink] = useState("");
 
   function handleShowFormClick() {
     setShow(true);
@@ -24,12 +30,25 @@ function App() {
     setBoardCount((prevCount) => prevCount + 1);
   }
 
+  function handleAddLink() {
+    const link = {
+      name: newLink,
+      to: `/${newLink}`,
+    };
+    setNavLink([...navLink, link]);
+  }
+
+  function handleLinkName(event) {
+    setNewLink(event.target.value);
+  }
+
   return (
     <div className="App">
       <Router>
         <Navbar
           handleShowFormClick={handleShowFormClick}
           boardCount={boardCount}
+          navLink={navLink}
         />
 
         <Routes>
@@ -41,6 +60,8 @@ function App() {
           show={show}
           handleHideFormClick={handleHideFormClick}
           handleBoardCount={handleBoardCount}
+          handleAddLink={handleAddLink}
+          handleLinkName={handleLinkName}
         />
       </Router>
     </div>

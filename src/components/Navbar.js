@@ -2,13 +2,16 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import AddIcon from "@mui/icons-material/Add";
 
-export default function Navbar({ handleShowFormClick, boardCount }) {
+export default function Navbar({ handleShowFormClick, boardCount, navLink }) {
   return (
     <nav className="navbar">
       <p>All Boards({boardCount})</p>
-      <Link to="/">Platform Launch </Link>
-      <Link to="/marketing-plan">Marketing Plan </Link>
-      <Link to="/roadmap">Roadmap </Link>
+
+      {navLink.map((link) => (
+        <Link key={link.to} to={link.to}>
+          {link.name}
+        </Link>
+      ))}
       <button onClick={handleShowFormClick}>
         <AddIcon /> Create new board
       </button>
