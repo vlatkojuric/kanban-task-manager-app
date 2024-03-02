@@ -29,7 +29,9 @@ export default function AddNewBoardModal({
             Add New Column
           </button>
           <button onClick={handleBoardCount}>
-            <span onClick={handleAddLink}>Create New Board</span>
+            <span onClick={handleAddLink}>
+              <span onClick={handleHideFormClick}>Create New Board</span>
+            </span>
           </button>
         </form>
       </section>
