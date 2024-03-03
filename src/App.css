@@ -27,7 +27,7 @@ section {
 div .columns_container {
   width: 100%;
   border: 1px solid black;
-  background-color: rgba(22, 22, 22, 0.151);
+  background-color: #e9effa;
 }
 
 .columns_container_tasks {

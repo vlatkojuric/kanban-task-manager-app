@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
-import AddIcon from "@mui/icons-material/Add";
+import AddNewTask from "../assets/AddNewTask";
 
 export default function Navbar({ handleShowFormClick, boardCount, navLink }) {
   return (
@@ -9,13 +9,15 @@ export default function Navbar({ handleShowFormClick, boardCount, navLink }) {
         <p>All Boards({boardCount})</p>
 
         {navLink.map((link) => (
-          <Link key={link.to} to={link.to}>
+          <Link key={link.to} to={link.to} className="navbar_links">
             {link.name}
           </Link>
         ))}
-        <button onClick={handleShowFormClick}>
-          <AddIcon /> Create new board
-        </button>
+        <div className="button_nav_container">
+          <button className="navbar_button" onClick={handleShowFormClick}>
+            <AddNewTask /> Create new board
+          </button>
+        </div>
       </div>
       <div>
         <span className="hide_bar">hide bar</span>
