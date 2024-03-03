@@ -17,6 +17,9 @@ function App() {
     { name: "Roadmap", to: "/roadmap" },
   ]);
   const [newLink, setNewLink] = useState("");
+  const [addInput, setAddInput] = useState([]);
+
+  // const [addNewColumn, setAddNewColumn] = useState("");
 
   function handleShowFormClick() {
     setShow(true);
@@ -43,6 +46,15 @@ function App() {
     setNewLink(event.target.value);
   }
 
+  function handleAddInput() {
+    const input = {
+      id: Date.now(),
+      value: "",
+    };
+
+    setAddInput([...addInput, input]);
+  }
+
   return (
     <div className="App">
       <Router>
@@ -63,6 +75,8 @@ function App() {
           handleBoardCount={handleBoardCount}
           handleAddLink={handleAddLink}
           handleLinkName={handleLinkName}
+          addInput={addInput}
+          handleAddInput={handleAddInput}
         />
       </Router>
     </div>
