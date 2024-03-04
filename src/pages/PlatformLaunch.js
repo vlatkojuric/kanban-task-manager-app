@@ -1,6 +1,6 @@
 import data from "../data.json";
 import "../styles/PlatfromLaunch.css";
-import Header from "../components/Header";
+import AddNewTask from "../assets/AddNewTask";
 
 export default function PlatfromLaunch() {
   const platformLaunchTodo = data.boards[0].columns[0];
@@ -9,8 +9,13 @@ export default function PlatfromLaunch() {
 
   return (
     <div className="columns_container">
-      <Header />
-
+      <header>
+        <h1>Platform Launch</h1>
+        <span className="add_new_task_header">
+          <AddNewTask />
+          Add New Task
+        </span>
+      </header>
       <section>
         <div className="columns_container_tasks">
           <h1>{platformLaunchTodo.name}</h1>

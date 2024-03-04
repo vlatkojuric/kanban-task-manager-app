@@ -1,6 +1,6 @@
 import data from "../data.json";
 import "../styles/MarketingPlan.css";
-import Header from "../components/Header";
+import AddNewTask from "../assets/AddNewTask";
 
 export default function MarketingPlan() {
   const marketingPlanTodo = data?.boards[1].columns[0];
@@ -9,7 +9,13 @@ export default function MarketingPlan() {
 
   return (
     <div className="columns_container">
-      <Header />
+      <header>
+        <h1>Marketing Plan</h1>
+        <span className="add_new_task_header">
+          <AddNewTask />
+          Add New Task
+        </span>
+      </header>
       <section>
         <div className="columns_container_tasks">
           <h1>{marketingPlanTodo.name}</h1>

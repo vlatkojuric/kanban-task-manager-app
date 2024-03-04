@@ -17,6 +17,37 @@ body {
   box-sizing: border-box;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  padding: 15px 15px 15px 15px;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+.add_new_task_header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #8471f2;
+  padding: 15px;
+  font-size: 13px;
+  color: white;
+  border-radius: 25px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.add_new_task_header:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 section {
   display: flex;
   justify-content: flex-start;

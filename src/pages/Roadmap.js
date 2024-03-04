@@ -1,6 +1,6 @@
 import data from "../data.json";
 import "../styles/Roadmap.css";
-import Header from "../components/Header";
+import AddNewTask from "../assets/AddNewTask";
 
 export default function Roadmap() {
   const roadmapNow = data?.boards[2].columns[0];
@@ -9,7 +9,13 @@ export default function Roadmap() {
 
   return (
     <div className="columns_container">
-      <Header />
+      <header>
+        <h1>Roadmap</h1>
+        <span className="add_new_task_header">
+          <AddNewTask />
+          Add New Task
+        </span>
+      </header>
       <section>
         <div className="columns_container_tasks">
           <h1>{roadmapNow.name}</h1>
