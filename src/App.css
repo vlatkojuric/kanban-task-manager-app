@@ -30,6 +30,10 @@ header h1 {
   font-size: 25px;
 }
 
+header svg {
+  fill: white;
+}
+
 .add_new_task_header {
   display: flex;
   align-items: center;
