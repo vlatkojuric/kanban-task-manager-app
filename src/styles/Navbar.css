@@ -63,4 +63,9 @@ nav p {
   align-items: center;
   padding: 4px 0 4px 18px;
   font-size: 25px;
+  margin-top: 18px;
 }
+
+/* nav svg {
+  width: fit-content;
+} */
