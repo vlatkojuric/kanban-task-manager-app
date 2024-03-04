@@ -11,13 +11,13 @@ nav {
 
 nav p {
   color: #979797;
+  padding: 4px 0 4px 18px;
 }
 
 .navbar_elements {
   display: flex;
   gap: 20px;
   flex-direction: column;
-  /* align-items: center; */
 }
 
 .navbar_links {
@@ -56,4 +56,11 @@ nav p {
 .navbar_button:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.logo_navbar {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 4px 18px;
+  font-size: 25px;
 }

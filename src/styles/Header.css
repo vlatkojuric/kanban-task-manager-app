@@ -8,12 +8,15 @@ header {
 }
 
 .add_new_task_header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   background-color: #8471f2;
   padding: 15px;
   font-size: 13px;
   color: white;
   border-radius: 25px;
-  transition: transform 0.3 ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
