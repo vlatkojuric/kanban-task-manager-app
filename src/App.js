@@ -56,6 +56,10 @@ function App() {
     setAddInput([...addInput, input]);
   }
 
+  function resetInputs() {
+    setAddInput([]);
+  }
+
   return (
     <div className="App">
       <Router>
@@ -81,6 +85,7 @@ function App() {
           handleLinkName={handleLinkName}
           addInput={addInput}
           handleAddInput={handleAddInput}
+          resetInputs={resetInputs}
         />
       </Router>
     </div>

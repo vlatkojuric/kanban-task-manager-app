@@ -9,6 +9,7 @@ export default function AddNewBoardModal({
   handleLinkName,
   addInput,
   handleAddInput,
+  resetInputs,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -55,8 +56,10 @@ export default function AddNewBoardModal({
               className="create_new_board_button"
               onClick={handleBoardCount}
             >
-              <span onClick={handleAddLink}>
-                <span onClick={handleHideFormClick}>Create New Board</span>
+              <span onClick={resetInputs}>
+                <span onClick={handleAddLink}>
+                  <span onClick={handleHideFormClick}>Create New Board</span>
+                </span>
               </span>
             </button>
           </div>

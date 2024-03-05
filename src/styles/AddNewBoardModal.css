@@ -81,6 +81,7 @@ p {
   background-color: #f9f1f1;
   color: #8471f2;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .create_new_board_button {
@@ -94,4 +95,5 @@ p {
   background-color: #8471f2;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
