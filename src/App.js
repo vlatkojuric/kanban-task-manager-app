@@ -18,9 +18,8 @@ function App() {
     { name: "Marketing Plan", to: "/marketing-plan" },
     { name: "Roadmap", to: "/roadmap" },
   ]);
-  const [addInput, setAddInput] = useState([]);
-
-  // const [addNewColumn, setAddNewColumn] = useState("");
+  const [addInput, setAddInput] = useState([{ id: Date.now(), value: "" }]);
+  const [addColumn, setAddColumn] = useState([]);
 
   function handleShowFormClick() {
     setShow(true);
@@ -35,7 +34,6 @@ function App() {
   }
 
   function handleAddLink() {
-    // const linkName = newLink.replace(/\s+/g, "-");
     const link = {
       name: newLink,
       to: `/${newLink.replace(/\s+/g, "-")}`,
@@ -60,6 +58,24 @@ function App() {
     setAddInput([]);
   }
 
+  function handleColumnName(inputId, event) {
+    setAddColumn((prevColumns) => {
+      const columnToUpdate = prevColumns.find(
+        (column) => column.id === inputId
+      );
+
+      if (columnToUpdate) {
+        return prevColumns.map((column) =>
+          column.id === inputId
+            ? { ...column, value: event.target.value }
+            : column
+        );
+      } else {
+        return [...prevColumns, { id: inputId, value: event.target.value }];
+      }
+    });
+  }
+
   return (
     <div className="App">
       <Router>
@@ -74,7 +90,11 @@ function App() {
           <Route path="/marketing-plan" element={<MarketingPlan />} />
           <Route path="/roadmap" element={<Roadmap />} />
           {navLink.map((link) => (
-            <Route key={link.to} path={link.to} element={<NewBoardData />} />
+            <Route
+              key={link.to}
+              path={link.to}
+              element={<NewBoardData addColumn={addColumn} />}
+            />
           ))}
         </Routes>
         <AddNewBoardModal
@@ -86,6 +106,7 @@ function App() {
           addInput={addInput}
           handleAddInput={handleAddInput}
           resetInputs={resetInputs}
+          handleColumnName={handleColumnName}
         />
       </Router>
     </div>

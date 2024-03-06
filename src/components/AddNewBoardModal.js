@@ -10,6 +10,7 @@ export default function AddNewBoardModal({
   addInput,
   handleAddInput,
   resetInputs,
+  handleColumnName,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -21,7 +22,9 @@ export default function AddNewBoardModal({
         <form className="new_board_modal_form" onSubmit={handleSubmit}>
           <div className="top_text_board_modal">
             <p>Add New Board</p>
-            <CloseIcon onClick={handleHideFormClick} className="close_form" />
+            <span onClick={resetInputs}>
+              <CloseIcon onClick={handleHideFormClick} className="close_form" />
+            </span>
           </div>
           <div className="board_name_input">
             <label htmlFor="name">Name:</label>
@@ -35,14 +38,12 @@ export default function AddNewBoardModal({
           <div className="columns_input">
             <label htmlFor="columns">Columns</label>
 
-            <input type="text" id="name" name="name" value="here" />
-
             {addInput.map((input) => (
               <input
                 key={input.id}
                 type="text"
-                id="column"
-                value={input.value}
+                id={input.id}
+                onChange={(event) => handleColumnName(input.id, event)}
               />
             ))}
           </div>
@@ -52,6 +53,7 @@ export default function AddNewBoardModal({
               <AddNewTask />
               Add New Column
             </button>
+
             <button
               className="create_new_board_button"
               onClick={handleBoardCount}

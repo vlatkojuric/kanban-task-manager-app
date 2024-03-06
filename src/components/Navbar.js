@@ -8,7 +8,7 @@ export default function Navbar({ handleShowFormClick, boardCount, navLink }) {
     <nav className="navbar">
       <div className="navbar_elements">
         <span className="logo_navbar">
-          <LogoLight className="logo_light" />
+          <LogoLight />
           <h3>ZenDo</h3>
         </span>
         <p>All Boards({boardCount})</p>
