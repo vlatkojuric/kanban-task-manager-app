@@ -16,14 +16,6 @@ export default function NewBoardData({ addColumn }) {
             <h1>{column.value}</h1>
           </div>
         ))}
-
-        {/* <div className="columns_container_tasks">
-          <h1>{addColumn}</h1>
-        </div> */}
-
-        {/* <div className="columns_container_tasks">
-          <h1>Done</h1>
-        </div>  */}
       </section>
     </div>
   );
