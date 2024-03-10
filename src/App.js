@@ -20,6 +20,7 @@ function App() {
   ]);
   const [addInput, setAddInput] = useState([{ id: Date.now(), value: "" }]);
   const [addColumn, setAddColumn] = useState([]);
+  // In App.js
 
   function handleShowFormClick() {
     setShow(true);
