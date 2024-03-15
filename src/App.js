@@ -18,9 +18,10 @@ function App() {
     { name: "Marketing Plan", to: "/marketing-plan" },
     { name: "Roadmap", to: "/roadmap" },
   ]);
-  const [addInput, setAddInput] = useState([{ id: Date.now(), value: "" }]);
-  const [addColumn, setAddColumn] = useState([]);
-  // In App.js
+  // const [addInput, setAddInput] = useState([{ id: Date.now(), value: "" }]);
+  const [addColumn, setAddColumn] = useState([
+    { name: "", tasks: [], id: Date.now() },
+  ]);
 
   function handleShowFormClick() {
     setShow(true);
@@ -36,6 +37,7 @@ function App() {
 
   function handleAddLink() {
     const link = {
+      id: Date.now(),
       name: newLink,
       to: `/${newLink.replace(/\s+/g, "-")}`,
     };
@@ -46,36 +48,20 @@ function App() {
     setNewLink(event.target.value);
   }
 
-  function handleAddInput() {
-    const input = {
-      id: Date.now(),
-      value: "",
-    };
+  let addNewColumns = () => {
+    let copy = [...addColumn, { name: "", tasks: [], id: Date.now() }];
+    console.log(copy);
+    setAddColumn(copy);
+  };
 
-    setAddInput([...addInput, input]);
+  function handleDeleteColumn(id) {
+    setAddColumn(addColumn.filter((column) => column.id !== id));
+    console.log(handleDeleteColumn);
   }
 
-  function resetInputs() {
-    setAddInput([]);
-  }
-
-  function handleColumnName(inputId, event) {
-    setAddColumn((prevColumns) => {
-      const columnToUpdate = prevColumns.find(
-        (column) => column.id === inputId
-      );
-
-      if (columnToUpdate) {
-        return prevColumns.map((column) =>
-          column.id === inputId
-            ? { ...column, value: event.target.value }
-            : column
-        );
-      } else {
-        return [...prevColumns, { id: inputId, value: event.target.value }];
-      }
-    });
-  }
+  // function handleColumnName(event) {
+  //   setNewColumn(event.target.value);
+  // }
 
   return (
     <div className="App">
@@ -94,7 +80,16 @@ function App() {
             <Route
               key={link.to}
               path={link.to}
-              element={<NewBoardData addColumn={addColumn} />}
+              element={
+                <NewBoardData
+                  id={link.id}
+                  boardName={link.name}
+                  to={link.to}
+                  // addColumn={addColumn.map((column) => (
+                  //   <h1 key={column.id}>{column.name}</h1>
+                  // ))}
+                />
+              }
             />
           ))}
         </Routes>
@@ -104,10 +99,16 @@ function App() {
           handleBoardCount={handleBoardCount}
           handleAddLink={handleAddLink}
           handleLinkName={handleLinkName}
-          addInput={addInput}
-          handleAddInput={handleAddInput}
-          resetInputs={resetInputs}
-          handleColumnName={handleColumnName}
+          // addInput={addInput}
+          // handleAddInput={handleAddInput}
+          // resetInputs={resetInputs}
+          addNewColumns={addNewColumns}
+          newLink={newLink}
+          addColumn={addColumn}
+          handleDeleteColumn={handleDeleteColumn}
+          // handleAddColumn={handleAddColumn}
+          // handleColumnName={handleColumnName}
+          // newColumn={newColumn}
         />
       </Router>
     </div>
