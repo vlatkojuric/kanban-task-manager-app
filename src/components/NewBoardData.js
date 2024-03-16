@@ -12,7 +12,7 @@ export default function NewBoardData({ addColumn, boardName }) {
       </header>
       <section>
         <div className="columns_container_tasks">
-          <h1>{addColumn}</h1>
+          <h1>{addColumn.columns}</h1>
         </div>
       </section>
     </div>

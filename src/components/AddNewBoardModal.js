@@ -7,18 +7,24 @@ export default function AddNewBoardModal({
   handleBoardCount,
   handleAddLink,
   handleLinkName,
-  // addInput,
-  // handleAddInput,
-  // resetInputs,
-  // handleColumnName,
+
+  handleColumnName,
   newLink,
   addNewColumns,
   addColumn,
   handleDeleteColumn,
-  // handleAddColumn,
+  addBoardData,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
+  }
+
+  // let board = { name: newLink, columns: addColumn };
+
+  function sendBoard() {
+    let board = { name: newLink, columns: addColumn };
+
+    addBoardData(board);
   }
 
   return (
@@ -45,14 +51,17 @@ export default function AddNewBoardModal({
           <div className="columns_input">
             <label htmlFor="columns">Columns</label>
 
-            {addColumn.map((column) => (
-              <div className="columns_container">
+            {addColumn.map((column, index) => (
+              <div className="columns_container" key={column.id}>
                 <input
                   key={column.id}
                   type="text"
                   name="columns"
                   id={column.id}
-                  // onChange={handleColumnName}
+                  onChange={(event) =>
+                    handleColumnName(index, event.target.value)
+                  }
+                  value={column.name}
                 />
                 <button onClick={() => handleDeleteColumn(column.id)}>x</button>
               </div>
@@ -60,7 +69,6 @@ export default function AddNewBoardModal({
           </div>
 
           <div className="buttons_board_modal">
-            {/* <button className="add_new_column_button" onClick={handleAddInput}> */}
             <button className="add_new_column_button" onClick={addNewColumns}>
               <AddNewTask />
               Add New Column
@@ -70,10 +78,11 @@ export default function AddNewBoardModal({
               className="create_new_board_button"
               onClick={handleBoardCount}
             >
-              {/* <span onClick={resetInputs}> */}
               <span>
                 <span onClick={handleAddLink}>
-                  <span onClick={handleHideFormClick}>Create New Board</span>
+                  <span onClick={handleHideFormClick}>
+                    <span onClick={sendBoard}>Create New Board</span>
+                  </span>
                 </span>
               </span>
             </button>
