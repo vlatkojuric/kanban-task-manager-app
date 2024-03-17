@@ -5,7 +5,7 @@ import Roadmap from "./pages/Roadmap";
 import Navbar from "./components/Navbar";
 import AddNewBoardModal from "./components/AddNewBoardModal";
 import NewBoardData from "./components/NewBoardData";
-import data from "./data.json";
+// import data from "./data.json";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -72,12 +72,9 @@ function App() {
 
   //combining the board links with columns
 
-  let board = { name: newLink, columns: addColumn };
-
-  function addNewBoard() {}
-
-  function addBoardData() {
-    let result = addNewBoard(board);
+  function addBoard() {
+    let board = { name: newLink, columns: addColumn };
+    console.log(board);
   }
 
   return (
@@ -100,8 +97,8 @@ function App() {
               element={
                 <NewBoardData
                   id={link.id}
-                  boardName={link.name}
                   addColumn={addColumn}
+                  newLink={newLink}
                 />
               }
             />
@@ -118,7 +115,7 @@ function App() {
           addColumn={addColumn}
           handleDeleteColumn={handleDeleteColumn}
           handleColumnName={handleColumnName}
-          addBoardData={addBoardData}
+          addBoard={addBoard}
         />
       </Router>
     </div>

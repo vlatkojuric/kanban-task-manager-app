@@ -7,24 +7,20 @@ export default function AddNewBoardModal({
   handleBoardCount,
   handleAddLink,
   handleLinkName,
-
   handleColumnName,
   newLink,
   addNewColumns,
   addColumn,
   handleDeleteColumn,
-  addBoardData,
+  addBoard,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-  // let board = { name: newLink, columns: addColumn };
-
   function sendBoard() {
     let board = { name: newLink, columns: addColumn };
-
-    addBoardData(board);
+    addBoard(board);
   }
 
   return (
