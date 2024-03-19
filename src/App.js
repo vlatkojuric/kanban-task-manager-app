@@ -13,16 +13,16 @@ import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false);
   const [boardCount, setBoardCount] = useState(3);
-  const [newLink, setNewLink] = useState("");
+  const [newLink, setNewLink] = useState([""]);
   const [navLink, setNavLink] = useState([
     { name: "Platform Launch", to: "/" },
     { name: "Marketing Plan", to: "/marketing-plan" },
     { name: "Roadmap", to: "/roadmap" },
     // { name: "", columns: [], to: `/${newLink.replace(/\s+/g, "-")}` },
   ]);
-  const [addColumn, setAddColumn] = useState([
-    { name: "", tasks: [], id: Date.now() },
-  ]);
+
+  const [newColumn, setNewColumn] = useState([""]);
+  const [addColumn, setAddColumn] = useState([]);
 
   //board modal realted functions
 
@@ -52,29 +52,22 @@ function App() {
   }
 
   //columns related functions
-  function addNewColumns() {
-    let copy = [...addColumn, { name: "", tasks: [], id: Date.now() }];
-    console.log(copy);
-    setAddColumn(copy);
+  function handleAddNewColumns() {
+    const columns = {
+      id: Date.now(),
+      name: newColumn,
+      // tasks: [],
+    };
+    setAddColumn([...addColumn, columns]);
   }
 
-  function handleColumnName(index, name) {
-    let copy = [...addColumn];
-    copy[index].name = name;
-    console.log(copy);
-    setAddColumn(copy);
+  function handleColumnName(event) {
+    setNewColumn(event.target.value);
   }
 
   function handleDeleteColumn(id) {
     setAddColumn(addColumn.filter((column) => column.id !== id));
     console.log(handleDeleteColumn);
-  }
-
-  //combining the board links with columns
-
-  function addBoard() {
-    let board = { name: newLink, columns: addColumn };
-    console.log(board);
   }
 
   return (
@@ -95,11 +88,7 @@ function App() {
               key={link.to}
               path={link.to}
               element={
-                <NewBoardData
-                  id={link.id}
-                  addColumn={addColumn}
-                  newLink={newLink}
-                />
+                <NewBoardData boardName={link.name} addColumn={addColumn} />
               }
             />
           ))}
@@ -110,12 +99,11 @@ function App() {
           handleBoardCount={handleBoardCount}
           handleAddLink={handleAddLink}
           handleLinkName={handleLinkName}
-          addNewColumns={addNewColumns}
+          handleAddNewColumns={handleAddNewColumns}
+          handleColumnName={handleColumnName}
           newLink={newLink}
           addColumn={addColumn}
           handleDeleteColumn={handleDeleteColumn}
-          handleColumnName={handleColumnName}
-          addBoard={addBoard}
         />
       </Router>
     </div>

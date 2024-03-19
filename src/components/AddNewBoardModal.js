@@ -9,18 +9,13 @@ export default function AddNewBoardModal({
   handleLinkName,
   handleColumnName,
   newLink,
-  addNewColumns,
+  handleAddNewColumns,
   addColumn,
+  newColumn,
   handleDeleteColumn,
-  addBoard,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
-  }
-
-  function sendBoard() {
-    let board = { name: newLink, columns: addColumn };
-    addBoard(board);
   }
 
   return (
@@ -47,17 +42,15 @@ export default function AddNewBoardModal({
           <div className="columns_input">
             <label htmlFor="columns">Columns</label>
 
-            {addColumn.map((column, index) => (
+            {addColumn.map((column) => (
               <div className="columns_container" key={column.id}>
                 <input
                   key={column.id}
                   type="text"
                   name="columns"
                   id={column.id}
-                  onChange={(event) =>
-                    handleColumnName(index, event.target.value)
-                  }
-                  value={column.name}
+                  onChange={handleColumnName}
+                  value={newColumn}
                 />
                 <button onClick={() => handleDeleteColumn(column.id)}>x</button>
               </div>
@@ -65,7 +58,10 @@ export default function AddNewBoardModal({
           </div>
 
           <div className="buttons_board_modal">
-            <button className="add_new_column_button" onClick={addNewColumns}>
+            <button
+              className="add_new_column_button"
+              onClick={handleAddNewColumns}
+            >
               <AddNewTask />
               Add New Column
             </button>
@@ -77,7 +73,7 @@ export default function AddNewBoardModal({
               <span>
                 <span onClick={handleAddLink}>
                   <span onClick={handleHideFormClick}>
-                    <span onClick={sendBoard}>Create New Board</span>
+                    <span>Create New Board</span>
                   </span>
                 </span>
               </span>
