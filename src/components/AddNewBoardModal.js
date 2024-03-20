@@ -11,7 +11,6 @@ export default function AddNewBoardModal({
   newLink,
   handleAddNewColumns,
   addColumn,
-  newColumn,
   handleDeleteColumn,
 }) {
   function handleSubmit(event) {
@@ -24,7 +23,6 @@ export default function AddNewBoardModal({
         <form className="new_board_modal_form" onSubmit={handleSubmit}>
           <div className="top_text_board_modal">
             <p>Add New Board</p>
-            {/* <span onClick={resetInputs}> */}
             <span>
               <CloseIcon onClick={handleHideFormClick} className="close_form" />
             </span>
@@ -42,15 +40,17 @@ export default function AddNewBoardModal({
           <div className="columns_input">
             <label htmlFor="columns">Columns</label>
 
-            {addColumn.map((column) => (
+            {addColumn.map((column, index) => (
               <div className="columns_container" key={column.id}>
                 <input
                   key={column.id}
                   type="text"
                   name="columns"
                   id={column.id}
-                  onChange={handleColumnName}
-                  value={newColumn}
+                  onChange={(event) =>
+                    handleColumnName(index, event.target.value)
+                  }
+                  value={column.columnName}
                 />
                 <button onClick={() => handleDeleteColumn(column.id)}>x</button>
               </div>

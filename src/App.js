@@ -13,7 +13,7 @@ import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false);
   const [boardCount, setBoardCount] = useState(3);
-  const [newLink, setNewLink] = useState([""]);
+  const [newLink, setNewLink] = useState("");
   const [navLink, setNavLink] = useState([
     { name: "Platform Launch", to: "/" },
     { name: "Marketing Plan", to: "/marketing-plan" },
@@ -21,7 +21,6 @@ function App() {
     // { name: "", columns: [], to: `/${newLink.replace(/\s+/g, "-")}` },
   ]);
 
-  const [newColumn, setNewColumn] = useState([""]);
   const [addColumn, setAddColumn] = useState([]);
 
   //board modal realted functions
@@ -53,16 +52,18 @@ function App() {
 
   //columns related functions
   function handleAddNewColumns() {
-    const columns = {
+    const newColumn = {
       id: Date.now(),
-      name: newColumn,
+      columnName: "",
       // tasks: [],
     };
-    setAddColumn([...addColumn, columns]);
+    setAddColumn([...addColumn, newColumn]);
   }
 
-  function handleColumnName(event) {
-    setNewColumn(event.target.value);
+  function handleColumnName(index, value) {
+    const updatedColumns = [...addColumn];
+    updatedColumns[index].columnName = value;
+    setAddColumn(updatedColumns);
   }
 
   function handleDeleteColumn(id) {

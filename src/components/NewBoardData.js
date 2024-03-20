@@ -12,8 +12,8 @@ export default function NewBoardData({ addColumn, boardName }) {
       </header>
       <section>
         {addColumn.map((column) => (
-          <div className="columns_container_tasks">
-            <h1>{column.name}</h1>
+          <div className="columns_container_tasks" key={column.id}>
+            <h1>{column.columnName}</h1>
           </div>
         ))}
       </section>
