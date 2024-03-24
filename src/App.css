@@ -52,6 +52,17 @@ header svg {
   cursor: pointer;
 }
 
+.add_column_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* input {
+  width: ;
+} */
+
 section {
   display: flex;
   justify-content: flex-start;

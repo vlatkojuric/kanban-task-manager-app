@@ -1,17 +1,17 @@
 import "../styles/AddNewBoardModal.css";
 import CloseIcon from "@mui/icons-material/Close";
-import AddNewTask from "../assets/AddNewTask";
+// import AddNewTask from "../assets/AddNewTask";
 export default function AddNewBoardModal({
   show,
   handleHideFormClick,
   handleBoardCount,
   handleAddLink,
   handleLinkName,
-  handleColumnName,
+  // handleColumnName,
   newLink,
-  handleAddNewColumns,
-  addColumn,
-  handleDeleteColumn,
+  // handleAddNewColumns,
+  // addColumn,
+  // handleDeleteColumn,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -37,7 +37,7 @@ export default function AddNewBoardModal({
               value={newLink}
             />
           </div>
-          <div className="columns_input">
+          {/* <div className="columns_input">
             <label htmlFor="columns">Columns</label>
 
             {addColumn.map((column, index) => (
@@ -55,16 +55,16 @@ export default function AddNewBoardModal({
                 <button onClick={() => handleDeleteColumn(column.id)}>x</button>
               </div>
             ))}
-          </div>
+          </div> */}
 
           <div className="buttons_board_modal">
-            <button
+            {/* <button
               className="add_new_column_button"
               onClick={handleAddNewColumns}
             >
               <AddNewTask />
               Add New Column
-            </button>
+            </button> */}
 
             <button
               className="create_new_board_button"

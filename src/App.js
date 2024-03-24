@@ -13,15 +13,14 @@ import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false);
   const [boardCount, setBoardCount] = useState(3);
+
   const [newLink, setNewLink] = useState("");
   const [navLink, setNavLink] = useState([
     { name: "Platform Launch", to: "/" },
     { name: "Marketing Plan", to: "/marketing-plan" },
     { name: "Roadmap", to: "/roadmap" },
-    // { name: "", columns: [], to: `/${newLink.replace(/\s+/g, "-")}` },
+    //{ name: "", columns: [], to: `/${newLink.replace(/\s+/g, "-")}` },
   ]);
-
-  const [addColumn, setAddColumn] = useState([]);
 
   //board modal realted functions
 
@@ -50,27 +49,6 @@ function App() {
     setNewLink(event.target.value);
   }
 
-  //columns related functions
-  function handleAddNewColumns() {
-    const newColumn = {
-      id: Date.now(),
-      columnName: "",
-      // tasks: [],
-    };
-    setAddColumn([...addColumn, newColumn]);
-  }
-
-  function handleColumnName(index, value) {
-    const updatedColumns = [...addColumn];
-    updatedColumns[index].columnName = value;
-    setAddColumn(updatedColumns);
-  }
-
-  function handleDeleteColumn(id) {
-    setAddColumn(addColumn.filter((column) => column.id !== id));
-    console.log(handleDeleteColumn);
-  }
-
   return (
     <div className="App">
       <Router>
@@ -88,9 +66,7 @@ function App() {
             <Route
               key={link.to}
               path={link.to}
-              element={
-                <NewBoardData boardName={link.name} addColumn={addColumn} />
-              }
+              element={<NewBoardData boardName={link.name} />}
             />
           ))}
         </Routes>
@@ -100,11 +76,11 @@ function App() {
           handleBoardCount={handleBoardCount}
           handleAddLink={handleAddLink}
           handleLinkName={handleLinkName}
-          handleAddNewColumns={handleAddNewColumns}
-          handleColumnName={handleColumnName}
+          // handleAddNewColumns={handleAddNewColumns}
+          // handleColumnName={handleColumnName}
           newLink={newLink}
-          addColumn={addColumn}
-          handleDeleteColumn={handleDeleteColumn}
+          // addColumn={addColumn}
+          // handleDeleteColumn={handleDeleteColumn}
         />
       </Router>
     </div>
